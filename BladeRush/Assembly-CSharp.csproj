@@ -54,22 +54,26 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Characters\Character.cs" />
+     <Compile Include="Assets\Scripts\Characters\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Characters\Enemies\Enemy_Floating_Basic.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\Gamemode\DefaultGamemode.cs" />
+     <Compile Include="Assets\Scripts\Objects\Projectiles\Billboard.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectiles\Projectile.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectiles\Sword.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerController_Default.cs" />
+     <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
+ <Reference Include="Unity.ProGrids">
+ <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids.Editor">
+ <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids.Editor">
- <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids">
- <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>G:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
