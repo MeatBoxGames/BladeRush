@@ -18,8 +18,8 @@ public class PlayerController_Default : MonoBehaviour
     public float sensitivityY = 15.0f;
     float minimumX = -360.0f;
     float maximumX = 360.0f;
-    float minimumY = -60.0f;
-    float maximumY = 60.0f;
+    float minimumY = -90.0f;
+    float maximumY = 90.0f;
     float rotationX = 0.0f;
     float rotationY = 0.0f;
     Quaternion originalRotation;
@@ -27,7 +27,7 @@ public class PlayerController_Default : MonoBehaviour
     float refireTimer;
     float maxRefire = 0.25f;
 
-    public float midairPause = 0.5f;
+    public float midairPause = 0.75f;
     float currAirPause;
     bool bAirPause;
 
@@ -72,6 +72,7 @@ public class PlayerController_Default : MonoBehaviour
             return;
         else if (currAirPause > 0)
         {
+            rigidbody.velocity = new Vector3(0, 0, 0);
             currAirPause -= Time.deltaTime;
         }
         else if (currAirPause < 0)
@@ -82,6 +83,7 @@ public class PlayerController_Default : MonoBehaviour
 
     void Update()
     {
+        rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
         MovePlayer();
         updateAirMove();
         if (refireTimer > 0) refireTimer -= Time.deltaTime;
