@@ -57,8 +57,11 @@
      <Compile Include="Assets\Scripts\Characters\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Characters\Enemies\Enemy_Floating_Basic.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\FixObjects.cs" />
      <Compile Include="Assets\Scripts\Gamemode\DefaultGamemode.cs" />
+     <Compile Include="Assets\Scripts\Gamemode\GameMode.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectiles\Billboard.cs" />
+     <Compile Include="Assets\Scripts\Objects\Projectiles\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectiles\Projectile.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectiles\Sword.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerController_Default.cs" />
