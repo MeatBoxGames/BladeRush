@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Enemy_Floating_Basic : Enemy {
 
-    public float damage = 10.0f;
-    public float attackSpeedMultiplier = 1.0f;
-    public float attackCooldown = 2.0f;
-
     int currAttackStep;
     int maxAttackStep = 10;
     bool bIsAttacking;
     float attackStepTimer = 0.25f;
     float currStepTimer;
-    float currCooldown;
 
 	// Use this for initialization
 	void Start () {
@@ -39,11 +34,8 @@ public class Enemy_Floating_Basic : Enemy {
 
         if (bIsAttacking && currStepTimer <= 0 && currAttackStep < maxAttackStep)
         {
-            Vector3 vec = transform.rotation * Vector3.forward;
-            Vector3 vecdir = player.transform.position - transform.position;
-            vec.Normalize();
-            vecdir.Normalize();
-            fireProjectile(transform.position + (transform.forward * 0.5f), Quaternion.LookRotation(new Vector3(vec.x, vecdir.y, vec.z)));
+            Vector3 offset = new Vector3();
+            fireProjectile(offset);
             currStepTimer = attackStepTimer * attackSpeedMultiplier;
             currAttackStep++;
         }
