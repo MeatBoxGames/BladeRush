@@ -15,9 +15,9 @@ public class FlameWiggle : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         Vector3 shift = new Vector3(Random.Range(-Wiggle_Amount, Wiggle_Amount), Random.Range(-Wiggle_Amount, Wiggle_Amount), Random.Range(-Wiggle_Amount, Wiggle_Amount));
-        ocurrentoffset += shift;
+        ocurrentoffset += shift*Time.deltaTime;
         ocurrentoffset = Vector3.ClampMagnitude(ocurrentoffset, Wiggle_Limit);
         gameObject.transform.localPosition=ocurrentoffset;
     }
