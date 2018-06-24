@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+    float damage = 0.0f;
+
     public float projectileSpeed;
     Character characterOwner;
     Rigidbody rigidbody;
-    bool bHit = false;
+    public bool bHit = false;
 
     private Quaternion q;
     private Vector3 v3;
