@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    float damage = 0.0f;
-
     public float projectileSpeed;
-    Character characterOwner;
-    Rigidbody rigidbody;
-    public bool bHit = false;
 
-    private Quaternion q;
-    private Vector3 v3;
+    protected float damage = 0.0f;
+    protected Character characterOwner;
+    protected Rigidbody rigidbody;
 
     public Character getCharacterOwner()
     {
@@ -26,32 +22,19 @@ public class Projectile : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () 
+    public void Start() 
     {
         rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-    void LateUpdate()
+    public void Update()
     {
-        if (bHit)
-        {
-            transform.position = v3;
-            transform.rotation = q;
-        }
-        else
-        {
-            v3 = transform.position;
-            q = transform.rotation;
-        }
+
 	}
 
-    void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
-        bHit = true;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.isKinematic = true;
-        PlayerCharacter player = (PlayerCharacter)characterOwner;
-        player.TeleportSword();
+        
     }
 }
