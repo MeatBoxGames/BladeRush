@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Enemy : Character {
 
+    public float damage = 10.0f;
+    public float attackSpeedMultiplier = 1.0f;
+    public float attackCooldown = 2.0f;
+    protected float currCooldown;
+    public float minWindupTime = 0.0f;
+    public float maxWindupTime = 0.0f;
+
     public float visionRange = 20.0f;
     public float moveSpeed = 7.0f;
     public float rotationSpeed = 0.1f;
@@ -74,10 +81,22 @@ public class Enemy : Character {
         if (!Physics.Raycast(transform.position + new Vector3(0.0f, 1.25f, 0.0f), player.transform.position, out hit, 2.0f, finalmask))
         {
             bHasTarget = true;
+            currCooldown = Random.Range(minWindupTime, maxWindupTime);
         }
     }
 
-    protected void fireProjectile(Vector3 pos, Quaternion rot)
+    protected void fireProjectile(Vector3 offset)
+    {
+        Vector3 vec = transform.rotation * (Vector3.forward + offset);
+        Vector3 vecdir = player.transform.position - transform.position;
+        vec.Normalize();
+        vecdir.Normalize();
+        vecdir += offset;
+        vecdir.Normalize();
+        fireProjectile_Internal(transform.position + (transform.forward * 0.5f), Quaternion.LookRotation(new Vector3(vec.x, vecdir.y, vec.z)));
+    }
+
+    void fireProjectile_Internal(Vector3 pos, Quaternion rot)
     {
         GameObject projectileInstance = (GameObject)Instantiate(
         projectile,
