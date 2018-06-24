@@ -341,9 +341,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="BladeRush.csproj">
+      <Project>{3A26E23B-DD8B-C9A7-478F-ED5D750D6BA3}</Project>
+      <Name>BladeRush</Name>
+    </ProjectReference>
+    <ProjectReference Include="BladeRush.csproj">
+      <Project>{3A26E23B-DD8B-C9A7-478F-ED5D750D6BA3}</Project>
+      <Name>BladeRush</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.standardevents@1.0.13\Editor\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\Alert.uxml" />
@@ -353,6 +364,8 @@
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageList.uxml" />
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageManagerWindow.uxml" />
     <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
+    <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Font\SIL Open Font License.txt" />
+    <None Include="C:\Users\Kerberos\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Shader\GridShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
