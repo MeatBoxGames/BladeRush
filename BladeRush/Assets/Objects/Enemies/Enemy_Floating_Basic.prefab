@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788000811279074}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.5204611, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 4898556047614694}
@@ -307,25 +307,24 @@ MonoBehaviour:
   maxHP: 0
   visionRange: 20
   moveSpeed: 7
-  rotationSpeed: 5
+  rotationSpeed: 1.5
   maxVertRot: 0.5
   player: {fileID: 0}
-  bHasTarget: 0
+  projectile: {fileID: 1237199311918434, guid: 391588f8920bbc441b1278f336459143, type: 2}
   damage: 10
   attackSpeedMultiplier: 1
   attackCooldown: 2
-  projectile: {fileID: 1237199311918434, guid: 391588f8920bbc441b1278f336459143, type: 2}
 --- !u!136 &136135076994015422
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846045163885336}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bcc4631aac6183348b586d6a79e9f881, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.75
-  m_Height: 3
+  m_Radius: 0.7
+  m_Height: 2.8
   m_Direction: 1
   m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!137 &137950910173027790

@@ -7,12 +7,11 @@ public class Enemy_Floating_Basic : Enemy {
     public float damage = 10.0f;
     public float attackSpeedMultiplier = 1.0f;
     public float attackCooldown = 2.0f;
-    public GameObject projectile;
 
     int currAttackStep;
     int maxAttackStep = 10;
     bool bIsAttacking;
-    float attackStepTimer = 0.1f;
+    float attackStepTimer = 0.25f;
     float currStepTimer;
     float currCooldown;
 
@@ -22,8 +21,12 @@ public class Enemy_Floating_Basic : Enemy {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         base.Update();
+
+        if (stunTime > 0)
+            return;
 
         if (bHasTarget)
             attack();
@@ -36,35 +39,30 @@ public class Enemy_Floating_Basic : Enemy {
 
         if (bIsAttacking && currStepTimer <= 0 && currAttackStep < maxAttackStep)
         {
-            fireProjectile(transform.position + (transform.forward * 0.5f), transform.rotation);
+            Vector3 vec = transform.rotation * Vector3.forward;
+            Vector3 vecdir = player.transform.position - transform.position;
+            vec.Normalize();
+            vecdir.Normalize();
+            fireProjectile(transform.position + (transform.forward * 0.5f), Quaternion.LookRotation(new Vector3(vec.x, vecdir.y, vec.z)));
             currStepTimer = attackStepTimer * attackSpeedMultiplier;
-            maxAttackStep++;
+            currAttackStep++;
         }
-        else if (!bIsAttacking && currCooldown <= 0 || currAttackStep >= maxAttackStep)
-        {
-            currStepTimer = attackStepTimer;
-            currCooldown = attackCooldown;
-            bIsAttacking = true;
-            currAttackStep = 0;
-        }
+        else if (!bIsAttacking && currCooldown <= 0)
+            startAttack();
+        else if (bIsAttacking && currAttackStep >= maxAttackStep)
+            resetAttack();
+    }
+
+    void startAttack()
+    {
+        bIsAttacking = true;
+        currAttackStep = 0;
+        currStepTimer = 0;
     }
 
     void resetAttack()
     {
         currCooldown = attackCooldown;
         bIsAttacking = false;
-    }
-
-    void fireProjectile(Vector3 pos, Quaternion rot)
-    {
-        GameObject projectileInstance = (GameObject)Instantiate(
-        projectile,
-        pos,
-        rot);
-
-        projectileInstance.GetComponent<Rigidbody>().velocity = projectileInstance.transform.forward * projectileInstance.GetComponent<Projectile>().projectileSpeed;
-
-        Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
-        projectileInstance.GetComponent<Projectile>().setCharacterOwner(GetComponent<Character>());
     }
 }
