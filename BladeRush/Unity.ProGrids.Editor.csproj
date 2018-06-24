@@ -5,9 +5,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</ProjectGuid>
+    <ProjectGuid>{E913EAA8-A9B5-A283-DA3E-82F1B9EE0798}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Unity.PackageManagerUI.Editor</AssemblyName>
+    <AssemblyName>Unity.ProGrids.Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
@@ -344,43 +344,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\AssemblyInfo.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\External\SemVersion.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\External\SemVersionExtension.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Common\OperationSignal.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Common\ThreadedDelay.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\IAddOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\IBaseOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\IListOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\IOperationFactory.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\IRemoveOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Interfaces\ISearchOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\OperationFactory.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\Package.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageCollection.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageFilter.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageGroupOrigins.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageInfo.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageInfoListExtensions.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageListExtensions.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageOrigin.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageState.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Packages\PackageTag.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmAddOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmBaseOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmListOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmOperationFactory.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmRemoveOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\Services\Upm\UpmSearchOperation.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\Common\Alert.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\Common\LoadingSpinner.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\Common\UIUtils.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageDetails.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageGroup.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageItem.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageList.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageManagerWindow.cs" />
-    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Sources\UI\PackageSearchFilterTabs.cs" />
+    <ProjectReference Include="Unity.ProGrids.csproj">
+      <Project>{23450A3B-DD10-D6DE-896F-2D4F8941F4B4}</Project>
+      <Name>Unity.ProGrids</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\AboutWindow.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\AssemblyInfo.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\Changelog.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\Defaults.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\EditorUtility.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\GridRenderer.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\IconUtility.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\MenuItems.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\PlayModeStateListener.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\PreferenceKeys.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\Preferences.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\ProGridsEditor.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\ProGridsEnums.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\ProGridsSceneToolbar.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\ScenePreferencesWindow.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\SemVer.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\Snapping.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\SnapSettings.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\ToggleContent.cs" />
+    <Compile Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Editor\Version.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
