@@ -18,4 +18,9 @@ public class GameMode : MonoBehaviour {
     {
 
     }
+
+    public virtual void PlayerDied(PlayerCharacter player)
+    {
+
+    }
 }

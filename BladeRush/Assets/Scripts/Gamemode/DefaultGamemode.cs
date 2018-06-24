@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefaultGamemode : GameMode {
-    public AudioSource oVictorySound;
+    public AudioSource Victory_Sound;
+    public AudioSource Failure_Sound;
+    public string Failure_Scene;
 
     private enum GameStates
     {
@@ -38,12 +40,44 @@ public class DefaultGamemode : GameMode {
         }
     }
 
+    public override void PlayerDied(PlayerCharacter player)
+    {
+        GameFailure();
+    }
+
     void GameVictory()
     {
         // Move to the success state
         state = GameStates.Victory;
-        if (oVictorySound != null) {
-            oVictorySound.Play();
+        Time.timeScale = 0;
+        if (Victory_Sound != null) {
+            Victory_Sound.Play();
         }
+    }
+
+    void GameFailure()
+    {
+        state = GameStates.Dead;
+        Failure_Sound.Play();
+        CallLater(1.0f, ShowGameOver);
+    }
+
+    delegate void DelayedFunction();
+
+    void ShowGameOver()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName: Failure_Scene);
+    }
+
+    IEnumerator ExecuteAfterTime(float time, DelayedFunction target)
+    {
+        yield return new WaitForSeconds(time);
+
+        target();
+    }
+
+    void CallLater (float time, DelayedFunction target)
+    {
+        StartCoroutine(ExecuteAfterTime(time,target));
     }
 }
