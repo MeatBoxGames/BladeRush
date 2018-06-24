@@ -393,8 +393,6 @@
     <None Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageList.uxml" />
     <None Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageManagerWindow.uxml" />
     <None Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
-    <None Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Font\SIL Open Font License.txt" />
-    <None Include="C:\Users\jtc-b\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.progrids@3.0.3-preview.0\Shader\GridShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
