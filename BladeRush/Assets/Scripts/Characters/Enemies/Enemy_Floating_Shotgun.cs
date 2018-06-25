@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Floating_Basic : Enemy {
+public class Enemy_Floating_Shotgun : Enemy {
 
     int currAttackStep;
-    int maxAttackStep = 10;
+    int maxAttackStep = 1;
     bool bIsAttacking;
     float attackStepTimer = 0.25f;
     float currStepTimer;
@@ -34,8 +34,12 @@ public class Enemy_Floating_Basic : Enemy {
 
         if (bIsAttacking && currStepTimer <= 0 && currAttackStep < maxAttackStep)
         {
-            Vector3 offset = new Vector3();
-            fireProjectile(offset);
+            for (int i = 0; i < 10; i++)
+            {
+                Vector3 offset = RandomInCone(50);
+                //offset += Random.Range(0, 0.5f) * transform.forward;
+                fireProjectile(offset);
+            }
             currStepTimer = attackStepTimer * attackSpeedMultiplier;
             currAttackStep++;
         }
@@ -56,5 +60,13 @@ public class Enemy_Floating_Basic : Enemy {
     {
         currCooldown = attackCooldown;
         bIsAttacking = false;
+    }
+
+    public static Vector3 RandomInCone(float radius)
+    {
+        float radradius = radius * Mathf.PI / 360;
+        float z = Random.Range(Mathf.Cos(radradius), 1);
+        float t = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Sqrt(1 - z * z) * Mathf.Cos(t), Mathf.Sqrt(1 - z * z) * Mathf.Sin(t), z);
     }
 }
