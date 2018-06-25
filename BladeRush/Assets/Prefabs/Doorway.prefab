@@ -36,10 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4195130198745314}
-  - component: {fileID: 65175692497042198}
-  - component: {fileID: 65570190352926676}
-  - component: {fileID: 65545023582426412}
-  - component: {fileID: 65322572236521704}
   m_Layer: 0
   m_Name: Doorway
   m_TagString: Untagged
@@ -66,8 +62,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965983964560890}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4037374521400404}
@@ -116,51 +112,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474089872759144}
   m_Mesh: {fileID: 4300000, guid: 25030e3a9a65aa747b9bb8d6d0507c31, type: 3}
---- !u!65 &65175692497042198
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965983964560890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0129795, y: 5, z: 1}
-  m_Center: {x: -4.4935102, y: 2.5, z: 0.5}
---- !u!65 &65322572236521704
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965983964560890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1.3567016, z: 1}
-  m_Center: {x: -2.5, y: 4.321649, z: 0.5}
---- !u!65 &65545023582426412
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965983964560890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 0, z: 1}
-  m_Center: {x: -2.5, y: 0, z: 0.5}
---- !u!65 &65570190352926676
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965983964560890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9887781, y: 5, z: 1}
-  m_Center: {x: -0.49438906, y: 2.5, z: 0.5}
