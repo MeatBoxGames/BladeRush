@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy_Floating_Basic : Enemy {
 
     int currAttackStep;
-    int maxAttackStep = 10;
     bool bIsAttacking;
     float attackStepTimer = 0.25f;
     float currStepTimer;

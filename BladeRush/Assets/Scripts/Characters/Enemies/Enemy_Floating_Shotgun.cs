@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy_Floating_Shotgun : Enemy {
 
     int currAttackStep;
-    int maxAttackStep = 1;
     bool bIsAttacking;
     float attackStepTimer = 0.25f;
     float currStepTimer;
@@ -32,9 +31,9 @@ public class Enemy_Floating_Shotgun : Enemy {
         if (currStepTimer > 0) currStepTimer -= Time.deltaTime;
         if (currCooldown > 0) currCooldown -= Time.deltaTime;
 
-        if (bIsAttacking && currStepTimer <= 0 && currAttackStep < maxAttackStep)
+        if (bIsAttacking && currStepTimer <= 0)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < maxAttackStep; i++)
             {
                 Vector3 offset = RandomInCone(50);
                 //offset += Random.Range(0, 0.5f) * transform.forward;
@@ -45,7 +44,7 @@ public class Enemy_Floating_Shotgun : Enemy {
         }
         else if (!bIsAttacking && currCooldown <= 0)
             startAttack();
-        else if (bIsAttacking && currAttackStep >= maxAttackStep)
+        else if (bIsAttacking)
             resetAttack();
     }
 

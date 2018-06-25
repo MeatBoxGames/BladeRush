@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 15
-  enemyTeleportStunDuration: 1
+  enemyTeleportStunDuration: 2
   bHit: 0
 --- !u!136 &136727812844470034
 CapsuleCollider:

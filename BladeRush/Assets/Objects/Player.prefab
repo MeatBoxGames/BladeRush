@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 95281056410629278}
   m_Layer: 0
   m_Name: BigSword
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1370865843945032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.483888, y: 2.81, z: -10.271261}
+  m_LocalPosition: {x: -17, y: 4, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4405378936182094}
@@ -277,6 +277,7 @@ MonoBehaviour:
   swordProjectile: {fileID: 1990215439117610, guid: fe948def3552c794587ef019a6bdd106,
     type: 2}
   maxStamina: 0
+  bHasSword: 1
 --- !u!114 &114680896798097458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32418b16908267847acc40bdc8373ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllingCharacter: {fileID: 0}
+  controllingCharacter: {fileID: 114568599460367834}
   movespeed: 6
   gravscale: 10
   camera: {fileID: 20238232689481344}
@@ -297,6 +298,7 @@ MonoBehaviour:
   sensitivityX: 15
   sensitivityY: 15
   midairPause: 0.75
+  midairAttackRefresh: 0.5
   maxAttackTimer: 0.5
   attackQueueTimer: 2
 --- !u!124 &124884165758392610
