@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FadeToBlack : MonoBehaviour {
     public float Fade_Time = 1;
+    public string Failure_Scene;
 
     private float fposition;
     private float fadestep;
@@ -12,7 +13,7 @@ public class FadeToBlack : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         fadestep = 1 / Fade_Time;
-        Overlay_Image = GetComponent<UnityEngine.UI.Image>();
+        Overlay_Image = GetComponentInChildren<UnityEngine.UI.Image>();
         Debug.Assert(Overlay_Image != null);
 	}
 	
@@ -22,5 +23,9 @@ public class FadeToBlack : MonoBehaviour {
         Color old_color = Overlay_Image.color;
         old_color.a = Mathf.Lerp(0.0f, 1.0f, fposition);
         Overlay_Image.color = old_color;
+        if (fposition >= 1)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName: Failure_Scene);
+        }
     }
 }
