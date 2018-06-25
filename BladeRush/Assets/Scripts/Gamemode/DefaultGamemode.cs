@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DefaultGamemode : GameMode {
     public AudioSource Victory_Sound;
-    public AudioSource Failure_Sound;
+    public AudioSource Player_Dies_Sound;
     public string Failure_Scene;
+    public GameObject Failure_Fadeout;
 
     private enum GameStates
     {
@@ -42,7 +43,11 @@ public class DefaultGamemode : GameMode {
 
     public override void PlayerDied(PlayerCharacter player)
     {
-        GameFailure();
+        if (state == GameStates.Playing)
+        {
+            Player_Dies_Sound.Play();
+            GameFailure();
+        }
     }
 
     void GameVictory()
@@ -58,26 +63,6 @@ public class DefaultGamemode : GameMode {
     void GameFailure()
     {
         state = GameStates.Dead;
-        Failure_Sound.Play();
-        CallLater(1.0f, ShowGameOver);
-    }
-
-    delegate void DelayedFunction();
-
-    void ShowGameOver()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName: Failure_Scene);
-    }
-
-    IEnumerator ExecuteAfterTime(float time, DelayedFunction target)
-    {
-        yield return new WaitForSeconds(time);
-
-        target();
-    }
-
-    void CallLater (float time, DelayedFunction target)
-    {
-        StartCoroutine(ExecuteAfterTime(time,target));
+        Instantiate(Failure_Fadeout);
     }
 }
