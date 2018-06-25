@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6813636af17ed4280b5f02f2414bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
+  maxHP: 100
   swordProjectile: {fileID: 1990215439117610, guid: fe948def3552c794587ef019a6bdd106,
     type: 2}
   maxStamina: 0
