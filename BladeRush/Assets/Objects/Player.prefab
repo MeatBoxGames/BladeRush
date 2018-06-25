@@ -304,6 +304,11 @@ MonoBehaviour:
   attackRange: 5
   attackDamage: 35
   attackStunDuration: 1
+  currentStamina: 0
+  maxStamina: 100
+  swordTeleportCost: 25
+  staminaRegenDelay: 1
+  staminaRegen: 35
 --- !u!124 &124884165758392610
 Behaviour:
   m_ObjectHideFlags: 1
