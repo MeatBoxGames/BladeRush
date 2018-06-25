@@ -520,13 +520,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6545ac46229924445b7bc9d220b39848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Next_Scene: Scenes/SampleScene
+  Next_Scene: Scenes/map2
   Victory_Fadeout: {fileID: 1342111263440720, guid: 7acacd80f351ccf4fb05407e5063f096,
     type: 2}
   Player_Dies_Sound: {fileID: 82346264971096652}
   Failure_Fadeout: {fileID: 1951691708034858, guid: 2f816bc1688fc274eafcff544ad70c52,
     type: 2}
-  God_Mode: 1
+  God_Mode: 0
 --- !u!114 &114155565692074430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -806,9 +806,9 @@ RectTransform:
   m_Father: {fileID: 224328118317118470}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315.8, y: 209.8}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -140}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224645525933148492
@@ -842,9 +842,9 @@ RectTransform:
   m_Father: {fileID: 224328118317118470}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295.7, y: 234.80002}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -95}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224845636435512756
