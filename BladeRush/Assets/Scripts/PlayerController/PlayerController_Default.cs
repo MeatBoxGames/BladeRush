@@ -43,7 +43,7 @@ public class PlayerController_Default : MonoBehaviour
 
     Animator swordAnimController;
     bool bSwordVisible = true;
-    Mesh swordMesh;
+    Renderer swordMesh;
 
 
     // Use this for initialization
@@ -98,26 +98,28 @@ public class PlayerController_Default : MonoBehaviour
 
     void checkForSword()
     {
-        /*
         if (swordMesh == null)
         {
-            Mesh[] mesh;
-            mesh = GetComponentsInChildren<MeshFilter>().mesh;
+            Renderer[] mesh;
+            mesh = GetComponentsInChildren<Renderer>();
 
-            foreach (ms in mesh)
+            foreach (Renderer ms in mesh)
             {
-
+                if (ms.tag == "Entity")
+                    swordMesh = ms;
             }
         }
 
         if (!controllingCharacter.bHasSword && bSwordVisible)
         {
+            swordMesh.enabled = false;
+            bSwordVisible = false;
         }
         else if (controllingCharacter.bHasSword && !bSwordVisible)
         {
-
+            swordMesh.enabled = true;
+            bSwordVisible = true;
         }
-         * */
     }
 
     void Update()
