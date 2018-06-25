@@ -290,14 +290,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllingCharacter: {fileID: 114568599460367834}
-  movespeed: 6
+  movespeed: 7.5
   gravscale: 50
   camera: {fileID: 20238232689481344}
   rigidbody: {fileID: 54712864111432114}
   axes: 0
   sensitivityX: 15
   sensitivityY: 15
-  midairPause: 0.75
+  midairPause: 0.35
   midairAttackRefresh: 0.5
   maxAttackTimer: 0.5
   attackQueueTimer: 2
