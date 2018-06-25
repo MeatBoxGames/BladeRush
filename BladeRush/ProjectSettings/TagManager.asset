@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Entity
   - Character
+  - Stamina
+  - Health
   layers:
   - Default
   - TransparentFX
