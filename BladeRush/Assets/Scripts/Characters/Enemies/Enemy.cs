@@ -83,6 +83,8 @@ public class Enemy : Character {
         animController.SetTrigger(deadTrigger);
         bDead = true;
         GameMode game = FindObjectOfType<GameMode>();
+        CapsuleCollider col = GetComponent<CapsuleCollider>();
+        Destroy(col);
         game.EnemyDied(this);
     }
 
