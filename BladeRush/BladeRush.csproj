@@ -311,6 +311,7 @@
     <Compile Include="Assets\Scripts\Characters\Character.cs" />
     <Compile Include="Assets\Scripts\Characters\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Characters\Enemies\Enemy_Floating_Basic.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemies\Enemy_Floating_Shotgun.cs" />
     <Compile Include="Assets\Scripts\Characters\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Gamemode\DefaultGamemode.cs" />
     <Compile Include="Assets\Scripts\Gamemode\GameMode.cs" />
