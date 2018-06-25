@@ -8,7 +8,7 @@ public class PlayerCharacter : Character {
     GameObject swordInstance;
     public int maxStamina;
     float currStamina;
-    bool bHasSword = true;
+    public bool bHasSword = true;
 
 	// Use this for initialization
 	void Start () {
