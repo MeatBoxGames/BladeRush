@@ -69,8 +69,8 @@
      <Compile Include="Assets\Scripts\VFX Tools\FadeToBlack.cs" />
      <Compile Include="Assets\Scripts\VFX Tools\FlameWiggle.cs" />
      <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
- <Reference Include="Unity.ProGrids">
- <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProGrids.Editor">
  <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
@@ -78,8 +78,8 @@
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <Reference Include="Unity.ProGrids">
+ <HintPath>G:/Unity/Projects/june-2018-game-jam/BladeRush/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>G:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
