@@ -8,7 +8,7 @@ public class PlayerController_Default : MonoBehaviour
     GameObject swordProjectile;
 
     public float movespeed = 7.0f;
-    public float gravscale = 10.0f;
+    public float gravscale = 50.0f;
     public Camera camera;
     public Rigidbody rigidbody;
 
@@ -27,9 +27,24 @@ public class PlayerController_Default : MonoBehaviour
     float refireTimer;
     float maxRefire = 0.25f;
 
-    public float midairPause = 0.75f;
+    public float midairPause = 0.25f;
+    public float midairAttackRefresh = 0.5f;
     float currAirPause;
     bool bAirPause;
+    int triggerCache;
+    int attackBoolCache;
+
+    float attackTimer;
+    float queueTimer;
+    public float maxAttackTimer = 0.5f;
+    public float attackQueueTimer = 2.0f;
+    bool bAttackQueued;
+    bool bReadyToQueue;
+
+    Animator swordAnimController;
+    bool bSwordVisible = true;
+    Mesh swordMesh;
+
 
     // Use this for initialization
     void Start()
@@ -81,18 +96,89 @@ public class PlayerController_Default : MonoBehaviour
         }
     }
 
+    void checkForSword()
+    {
+        /*
+        if (swordMesh == null)
+        {
+            Mesh[] mesh;
+            mesh = GetComponentsInChildren<MeshFilter>().mesh;
+
+            foreach (ms in mesh)
+            {
+
+            }
+        }
+
+        if (!controllingCharacter.bHasSword && bSwordVisible)
+        {
+        }
+        else if (controllingCharacter.bHasSword && !bSwordVisible)
+        {
+
+        }
+         * */
+    }
+
     void Update()
     {
+
         rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
         MovePlayer();
         updateAirMove();
+        checkForSword();
         if (refireTimer > 0) refireTimer -= Time.deltaTime;
+        if (attackTimer > 0) attackTimer -= Time.deltaTime;
+        if (queueTimer > 0) queueTimer -= Time.deltaTime;
 
         if (Input.GetAxis("Fire2") != 0 && refireTimer <= 0)
         {
             ThrowSword();
             refireTimer = maxRefire;
         }
+
+        if ((Input.GetAxis("Fire1") != 0 || bAttackQueued) && attackTimer <= 0)
+        {
+            attack();
+        }
+        else if (Input.GetAxis("Fire1") != 0 && bReadyToQueue)
+        {
+            bAttackQueued = true;
+        }
+        else if (queueTimer <= 0 && !bAttackQueued)
+        {
+            resetAttack();
+        }
+        else if (Input.GetAxis("Fire1") == 0 && attackTimer <= 0)
+            bReadyToQueue = true;
+    }
+
+    void attack()
+    {
+        if (swordAnimController == null)
+        {
+            swordAnimController = GetComponentInChildren<Animator>();
+            triggerCache = Animator.StringToHash("EndAttack");
+            attackBoolCache = Animator.StringToHash("DoAttack");
+        }
+
+        if (!controllingCharacter.bHasSword)
+            return;
+
+        swordAnimController.SetTrigger(attackBoolCache);
+        swordAnimController.ResetTrigger(triggerCache);
+        attackTimer = maxAttackTimer;
+        queueTimer = attackQueueTimer;
+        bAttackQueued = false;
+        bReadyToQueue = false;
+    }
+
+    void resetAttack()
+    {
+        swordAnimController.SetTrigger(triggerCache);
+        swordAnimController.ResetTrigger(attackBoolCache);
+        bAttackQueued = false;
+        bReadyToQueue = false;
     }
 
     void MovePlayer()
