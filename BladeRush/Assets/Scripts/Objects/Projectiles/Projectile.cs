@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
     public float projectileSpeed;
 
-    protected float damage = 0.0f;
+    public float damage = 0.0f;
     protected Character characterOwner;
     protected Rigidbody rigidbody;
 
