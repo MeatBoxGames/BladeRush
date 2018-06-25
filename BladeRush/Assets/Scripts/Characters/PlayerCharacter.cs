@@ -8,7 +8,7 @@ public class PlayerCharacter : Character {
     GameObject swordInstance;
     public int maxStamina;
     float currStamina;
-    bool bHasSword = true;
+    public bool bHasSword = true;
 
 	// Use this for initialization
 	void Start () {
@@ -77,8 +77,6 @@ public class PlayerCharacter : Character {
             transform.LookAt(collision.gameObject.transform.position);
 
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
-            Debug.Log("hai");
 
             if (enemy != null)
                 enemy.setStunTime(swordInstance.GetComponent<Sword>().enemyTeleportStunDuration);
