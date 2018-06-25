@@ -205,8 +205,24 @@ public class PlayerController_Default : MonoBehaviour
 
         if (airPauseLimit < 3)
         {
-            airPauseLimit++;
-            enableAirPause();
+            // Bit shift the index of the layer to get a bit mask
+            int layermask1 = 1 << 9;
+            int layermask2 = 1 << 10;
+            int layermask3 = 1 << 11;
+
+            int finalmask = layermask1 | layermask2 | layermask3;
+
+            // This would cast rays only against colliders in layer 8.
+            // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
+            finalmask = ~finalmask;
+
+            RaycastHit hit;
+
+            if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up * -1.0f), out hit, 2.0f, finalmask))
+            {
+                enableAirPause();
+                airPauseLimit++;
+            }
         }
     }
 

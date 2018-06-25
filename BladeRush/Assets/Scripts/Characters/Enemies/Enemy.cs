@@ -121,7 +121,8 @@ public class Enemy : Character {
         finalmask = ~finalmask;
 
         RaycastHit hit;
-        if (!Physics.Raycast(transform.position + new Vector3(0.0f, 1.25f, 0.0f), player.transform.position, out hit, 2.0f, finalmask))
+        Vector3 direction = player.transform.position - transform.position + new Vector3(0.0f, 1.25f, 0.0f);
+        if (!Physics.Raycast(transform.position + new Vector3(0.0f, 1.25f, 0.0f), direction, out hit, visionRange, finalmask))
         {
             bHasTarget = true;
             currCooldown = Random.Range(minWindupTime, maxWindupTime);
