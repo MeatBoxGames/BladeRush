@@ -20,13 +20,21 @@ public class PlayerCharacter : Character {
 		
 	}
 
-    public void ThrowSword(Vector3 pos, Quaternion rot)
+    public bool ThrowSword(Vector3 pos, Quaternion rot)
     {
         if (!bHasSword)
         {
             TeleportSword();
-            return;
+            return false;
         }
+
+        PlayerController_Default pc = gameObject.GetComponent<PlayerController_Default>();
+
+        if (pc.currentStamina < pc.swordTeleportCost)
+            return false;
+
+        pc.setCurrentStamina(pc.currentStamina - pc.swordTeleportCost);
+        pc.setStaminaTimer();
 
         swordInstance = (GameObject)Instantiate(
         swordProjectile,
@@ -39,6 +47,7 @@ public class PlayerCharacter : Character {
         swordInstance.GetComponent<Projectile>().setCharacterOwner(GetComponent<Character>());
 
         bHasSword = false;
+        return true;
     }
 
     public void TeleportSword()
