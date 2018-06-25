@@ -153,6 +153,7 @@ public class Enemy : Character {
 
         Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
         projectileInstance.GetComponent<Projectile>().setCharacterOwner(GetComponent<Character>());
+        projectileInstance.GetComponent<Projectile>().damage = damage;
     }
 
     public void setStunTime(float duration)
