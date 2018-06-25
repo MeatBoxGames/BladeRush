@@ -28,7 +28,7 @@ public class EnemyProjectile : Projectile {
 
         // Get the player that was hit, or null if we hit something else.
         PlayerCharacter player = collision.gameObject.GetComponentInParent<PlayerCharacter>();
-        // If what we hit was a player.
+        // If what we hit was a player...
         if (player != null)
         {
             // The player can't take damage now, but if they could, whatever it is that would cause that should happen here.
@@ -37,7 +37,7 @@ public class EnemyProjectile : Projectile {
             // Instead, we're just going to tell the game we're dead directly.
             // Grab the game controller
             GameMode game = FindObjectOfType<GameMode>();
-            Debug.Assert(game != null, "Game is null!");
+            Debug.Assert(game != null, "Game is null! Is there a game controller in this level?");
 
             // And tell it we're dead.
             if (game != null)
