@@ -11,12 +11,13 @@ public class Enemy_Floating_Shotgun : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		
+        base.Start();
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
+        if (bDead) return;
         base.Update();
 
         if (stunTime > 0)
