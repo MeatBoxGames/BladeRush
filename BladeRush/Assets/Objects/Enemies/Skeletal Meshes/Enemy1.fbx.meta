@@ -36,7 +36,12 @@ ModelImporter:
     7400020: Armature|Staggered
     9500000: //RootNode
     13700000: Sphere
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: b89096cc837789847bb27a4f529fd1af, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
