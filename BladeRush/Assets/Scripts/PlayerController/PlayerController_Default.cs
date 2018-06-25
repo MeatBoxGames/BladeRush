@@ -48,6 +48,7 @@ public class PlayerController_Default : MonoBehaviour
     public float currentStamina;
     public float maxStamina = 100.0f;
     public float swordTeleportCost = 25.0f;
+    public float rollCost = 15.0f;
     public float staminaRegenDelay = 1.0f;
     public float staminaRegen = 35.0f;
     float staminaTimer;
@@ -55,6 +56,13 @@ public class PlayerController_Default : MonoBehaviour
     Animator swordAnimController;
     bool bSwordVisible = true;
     Renderer swordMesh;
+
+    bool bIsRolling;
+    float rollTimer;
+    public float rollDuration = 0.25f;
+    bool bReadyToRoll;
+    Vector2 rollInputs;
+    public float dodgeSpeed = 14.0f;
 
     GameMode game;
 
@@ -177,35 +185,74 @@ public class PlayerController_Default : MonoBehaviour
 
         rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
 
-        MovePlayer();
-        updateAirMove();
-        checkForSword();
-        updateStamina();
-
-        if (refireTimer > 0) refireTimer -= Time.deltaTime;
-        if (attackTimer > 0) attackTimer -= Time.deltaTime;
-        if (queueTimer > 0) queueTimer -= Time.deltaTime;
-        if (staminaTimer > 0) staminaTimer -= Time.deltaTime;
-
-        if (Input.GetAxis("Fire2") != 0 && refireTimer <= 0)
+        if (!bIsRolling)
         {
-            ThrowSword();
-            refireTimer = maxRefire;
+            MovePlayer();
+            updateAirMove();
+            checkForSword();
+            updateStamina();
+
+            if (refireTimer > 0) refireTimer -= Time.deltaTime;
+            if (attackTimer > 0) attackTimer -= Time.deltaTime;
+            if (queueTimer > 0) queueTimer -= Time.deltaTime;
+            if (staminaTimer > 0) staminaTimer -= Time.deltaTime;
+
+            if (Input.GetAxis("Fire2") != 0 && refireTimer <= 0)
+            {
+                ThrowSword();
+                refireTimer = maxRefire;
+            }
+
+            if ((Input.GetAxis("Fire1") != 0 || bAttackQueued) && attackTimer <= 0)
+                attack();
+            else if (Input.GetAxis("Fire1") != 0 && bReadyToQueue)
+                bAttackQueued = true;
+            else if (queueTimer <= 0 && !bAttackQueued)
+                resetAttack();
+            else if (Input.GetAxis("Fire1") == 0 && attackTimer <= 0)
+                bReadyToQueue = true;
+        }
+        else
+        {
+
         }
 
-        if ((Input.GetAxis("Fire1") != 0 || bAttackQueued) && attackTimer <= 0)
-            attack();
-        else if (Input.GetAxis("Fire1") != 0 && bReadyToQueue)
-            bAttackQueued = true;
-        else if (queueTimer <= 0 && !bAttackQueued)
-            resetAttack();
-        else if (Input.GetAxis("Fire1") == 0 && attackTimer <= 0)
-            bReadyToQueue = true;
-
-        if (Input.GetAxis("Fire3") != 0)
+        if (Input.GetAxis("Fire3") != 0 && bReadyToRoll)
         {
-
+            //dodgeRoll();
         }
+        else if (Input.GetAxis("Fire3") == 0)
+        {
+            //bReadyToRoll = true;
+        }
+    }
+
+    void updateDodge()
+    {
+        Vector3 move = transform.forward * rollInputs.y;
+        move += transform.right * rollInputs.x;
+
+        move.Normalize();
+        move *= movespeed * Time.deltaTime;
+
+        rigidbody.MovePosition(transform.position + move);
+    }
+
+    void dodgeRoll()
+    {
+        if (rollTimer > 0)
+            return;
+
+        bIsRolling = true;
+        rollTimer = rollDuration;
+
+        var x = Input.GetAxis("Horizontal");
+        var z = Input.GetAxis("Vertical");
+
+        rollInputs = new Vector2(x, z);
+
+        resetAttack();
+        disableAirPause();
     }
 
     void dealDamage()
