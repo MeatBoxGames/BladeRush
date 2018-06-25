@@ -320,6 +320,7 @@
     <Compile Include="Assets\Scripts\Objects\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Scripts\Objects\Projectiles\Sword.cs" />
     <Compile Include="Assets\Scripts\PlayerController\PlayerController_Default.cs" />
+    <Compile Include="Assets\Scripts\VFX Tools\FadeFromBlack.cs" />
     <Compile Include="Assets\Scripts\VFX Tools\FadeToBlack.cs" />
     <Compile Include="Assets\Scripts\VFX Tools\FlameWiggle.cs" />
   </ItemGroup>
