@@ -78,8 +78,6 @@ public class PlayerCharacter : Character {
 
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
-            Debug.Log("hai");
-
             if (enemy != null)
                 enemy.setStunTime(swordInstance.GetComponent<Sword>().enemyTeleportStunDuration);
         }

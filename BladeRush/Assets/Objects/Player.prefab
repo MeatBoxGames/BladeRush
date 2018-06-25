@@ -277,6 +277,7 @@ MonoBehaviour:
   swordProjectile: {fileID: 1990215439117610, guid: fe948def3552c794587ef019a6bdd106,
     type: 2}
   maxStamina: 0
+  bHasSword: 1
 --- !u!114 &114680896798097458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32418b16908267847acc40bdc8373ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllingCharacter: {fileID: 0}
+  controllingCharacter: {fileID: 114568599460367834}
   movespeed: 6
   gravscale: 10
   camera: {fileID: 20238232689481344}
@@ -297,6 +298,7 @@ MonoBehaviour:
   sensitivityX: 15
   sensitivityY: 15
   midairPause: 0.75
+  midairAttackRefresh: 0.5
   maxAttackTimer: 0.5
   attackQueueTimer: 2
 --- !u!124 &124884165758392610

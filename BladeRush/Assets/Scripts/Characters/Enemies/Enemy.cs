@@ -6,6 +6,7 @@ public class Enemy : Character {
 
     public float damage = 10.0f;
     public float attackSpeedMultiplier = 1.0f;
+    public int maxAttackStep = 10;
     public float attackCooldown = 2.0f;
     protected float currCooldown;
     public float minWindupTime = 0.0f;
