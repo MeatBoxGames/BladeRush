@@ -45,10 +45,18 @@ public class PlayerController_Default : MonoBehaviour
     bool bAttackQueued;
     bool bReadyToQueue;
 
+    public float currentStamina;
+    public float maxStamina = 100.0f;
+    public float swordTeleportCost = 25.0f;
+    public float staminaRegenDelay = 1.0f;
+    public float staminaRegen = 35.0f;
+    float staminaTimer;
+
     Animator swordAnimController;
     bool bSwordVisible = true;
     Renderer swordMesh;
 
+    GameMode game;
 
     // Use this for initialization
     void Start()
@@ -62,10 +70,25 @@ public class PlayerController_Default : MonoBehaviour
         Physics.gravity = new Vector3(0, -1.0f * gravscale, 0);
 
         controllingCharacter = (PlayerCharacter)GetComponent<Character>();
+
+        setCurrentStamina(maxStamina);
+    }
+
+    public void setCurrentStamina(float newstam)
+    {
+        Debug.Log(newstam);
+        currentStamina = Mathf.Clamp(newstam, 0.0f, maxStamina);
+        updateStaminaHUD();
+    }
+
+    public void setStaminaTimer()
+    {
+        staminaTimer = staminaRegenDelay;
     }
 
     void ThrowSword()
     {
+
         airPauseLimit = 0;
         controllingCharacter.ThrowSword(transform.position, camera.transform.rotation);
     }
@@ -127,16 +150,42 @@ public class PlayerController_Default : MonoBehaviour
         }
     }
 
+    void updateStaminaHUD()
+    {
+        var objects = GameObject.FindGameObjectsWithTag("Stamina")[0];
+
+        if (objects == null)
+            return;
+
+        UnityEngine.UI.Image stamBar = objects.GetComponent<UnityEngine.UI.Image>();
+        stamBar.fillAmount = currentStamina / maxStamina;
+    }
+
+    void updateStamina()
+    {
+        if (staminaTimer <= 0)
+        {
+            float stam = Mathf.Clamp(currentStamina + (staminaRegen * Time.deltaTime), 0.0f, maxStamina);
+            setCurrentStamina(stam);
+        }
+    }
+
     void Update()
     {
+        if (game == null)
+            game = FindObjectOfType<GameMode>();
 
         rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
+
         MovePlayer();
         updateAirMove();
         checkForSword();
+        updateStamina();
+
         if (refireTimer > 0) refireTimer -= Time.deltaTime;
         if (attackTimer > 0) attackTimer -= Time.deltaTime;
         if (queueTimer > 0) queueTimer -= Time.deltaTime;
+        if (staminaTimer > 0) staminaTimer -= Time.deltaTime;
 
         if (Input.GetAxis("Fire2") != 0 && refireTimer <= 0)
         {
@@ -145,17 +194,11 @@ public class PlayerController_Default : MonoBehaviour
         }
 
         if ((Input.GetAxis("Fire1") != 0 || bAttackQueued) && attackTimer <= 0)
-        {
             attack();
-        }
         else if (Input.GetAxis("Fire1") != 0 && bReadyToQueue)
-        {
             bAttackQueued = true;
-        }
         else if (queueTimer <= 0 && !bAttackQueued)
-        {
             resetAttack();
-        }
         else if (Input.GetAxis("Fire1") == 0 && attackTimer <= 0)
             bReadyToQueue = true;
     }
