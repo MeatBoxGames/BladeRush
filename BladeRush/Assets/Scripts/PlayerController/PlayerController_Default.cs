@@ -201,6 +201,11 @@ public class PlayerController_Default : MonoBehaviour
             resetAttack();
         else if (Input.GetAxis("Fire1") == 0 && attackTimer <= 0)
             bReadyToQueue = true;
+
+        if (Input.GetAxis("Fire3") != 0)
+        {
+
+        }
     }
 
     void dealDamage()

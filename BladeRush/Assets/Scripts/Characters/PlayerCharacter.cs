@@ -12,7 +12,7 @@ public class PlayerCharacter : Character {
 
 	// Use this for initialization
 	void Start () {
-		
+        base.Start();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +48,34 @@ public class PlayerCharacter : Character {
 
         bHasSword = false;
         return true;
+    }
+
+    public void takeDamage(float damage)
+    {
+        currHP -= damage;
+
+        var objects = GameObject.FindGameObjectsWithTag("Health")[0];
+
+        if (objects == null)
+            return;
+
+        UnityEngine.UI.Image healthBar = objects.GetComponent<UnityEngine.UI.Image>();
+        healthBar.fillAmount = currHP / maxHP;
+
+        if (currHP <= 0)
+            die();
+    }
+
+    public void die()
+    {
+        GameMode game = FindObjectOfType<GameMode>();
+        Debug.Assert(game != null, "Game is null! Is there a game controller in this level?");
+
+        // And tell it we're dead.
+        if (game != null)
+        {
+            game.PlayerDied(this);
+        }
     }
 
     public void TeleportSword()
