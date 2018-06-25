@@ -14,7 +14,7 @@ public class Enemy : Character {
 
     public float visionRange = 20.0f;
     public float moveSpeed = 7.0f;
-    public float rotationSpeed = 0.1f;
+    public float rotationSpeed = 1.5f;
     public float maxVertRot = 0.5f;
     protected GameObject player = null;
 
@@ -81,7 +81,9 @@ public class Enemy : Character {
     public void die()
     {
         animController.SetTrigger(deadTrigger);
-        bDead = true; 
+        bDead = true;
+        GameMode game = FindObjectOfType<GameMode>();
+        game.EnemyDied(this);
     }
 
     void chasePlayer()
@@ -119,7 +121,8 @@ public class Enemy : Character {
         finalmask = ~finalmask;
 
         RaycastHit hit;
-        if (!Physics.Raycast(transform.position + new Vector3(0.0f, 1.25f, 0.0f), player.transform.position, out hit, 2.0f, finalmask))
+        Vector3 direction = player.transform.position - transform.position + new Vector3(0.0f, 1.25f, 0.0f);
+        if (!Physics.Raycast(transform.position + new Vector3(0.0f, 1.25f, 0.0f), direction, out hit, visionRange, finalmask))
         {
             bHasTarget = true;
             currCooldown = Random.Range(minWindupTime, maxWindupTime);
