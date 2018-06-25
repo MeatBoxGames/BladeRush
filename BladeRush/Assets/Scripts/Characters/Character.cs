@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    public int maxHP = 100;
+    public float maxHP = 100;
     protected float currHP;
 
 	// Use this for initialization
