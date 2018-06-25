@@ -81,7 +81,9 @@ public class Enemy : Character {
     public void die()
     {
         animController.SetTrigger(deadTrigger);
-        bDead = true; 
+        bDead = true;
+        GameMode game = FindObjectOfType<GameMode>();
+        game.EnemyDied(this);
     }
 
     void chasePlayer()
