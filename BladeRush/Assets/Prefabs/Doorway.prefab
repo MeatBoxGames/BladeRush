@@ -36,6 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4195130198745314}
+  - component: {fileID: 65140103003662594}
+  - component: {fileID: 65550980367192414}
+  - component: {fileID: 65277077281044214}
+  - component: {fileID: 65575344267692656}
   m_Layer: 0
   m_Name: Doorway
   m_TagString: Untagged
@@ -112,3 +116,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474089872759144}
   m_Mesh: {fileID: 4300000, guid: 25030e3a9a65aa747b9bb8d6d0507c31, type: 3}
+--- !u!65 &65140103003662594
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965983964560890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0296607, y: 1.3573503, z: 1.1101394}
+  m_Center: {x: -2.5028403, y: 4.348252, z: 0.49952662}
+--- !u!65 &65277077281044214
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965983964560890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0488732, y: 5.0318613, z: 1.1101394}
+  m_Center: {x: -4.493234, y: 2.5109963, z: 0.49952662}
+--- !u!65 &65550980367192414
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965983964560890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0394318, y: 5.0318613, z: 1.1101394}
+  m_Center: {x: -0.50772583, y: 2.5109963, z: 0.49952662}
+--- !u!65 &65575344267692656
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965983964560890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0296607, y: 0.045808315, z: 1.1101394}
+  m_Center: {x: -2.5028403, y: -0.009577513, z: 0.49952662}
