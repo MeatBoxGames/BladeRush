@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    public int maxHP;
-    float currHP;
+    public int maxHP = 100;
+    protected float currHP;
 
 	// Use this for initialization
-	void Start () {
-		
+	public void Start () {
+        currHP = maxHP;
 	}
 	
 	// Update is called once per frame
