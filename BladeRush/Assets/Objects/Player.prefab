@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllingCharacter: {fileID: 114568599460367834}
   movespeed: 6
-  gravscale: 10
+  gravscale: 20
   camera: {fileID: 20238232689481344}
   rigidbody: {fileID: 54712864111432114}
   axes: 0

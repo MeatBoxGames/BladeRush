@@ -38,6 +38,10 @@ public class PlayerController_Default : MonoBehaviour
     float queueTimer;
     public float maxAttackTimer = 0.5f;
     public float attackQueueTimer = 2.0f;
+    public float attackRange = 3.0f;
+    public int attackDamage = 35;
+    public float attackStunDuration = 1.0f;
+    int airPauseLimit;
     bool bAttackQueued;
     bool bReadyToQueue;
 
@@ -62,6 +66,7 @@ public class PlayerController_Default : MonoBehaviour
 
     void ThrowSword()
     {
+        airPauseLimit = 0;
         controllingCharacter.ThrowSword(transform.position, camera.transform.rotation);
     }
 
@@ -155,14 +160,37 @@ public class PlayerController_Default : MonoBehaviour
             bReadyToQueue = true;
     }
 
+    void dealDamage()
+    {
+        var objects = GameObject.FindGameObjectsWithTag("Character");
+        var objectCount = objects.Length;
+
+        foreach (var obj in objects)
+        {
+            if (Vector3.Dot(transform.forward, obj.transform.position - transform.position) < 0.8f)
+                continue;
+
+            if (Vector3.Distance(obj.transform.position, transform.position) > attackRange)
+                continue;
+
+            Enemy hitEnemy = obj.GetComponent<Enemy>();
+
+            if (hitEnemy != null)
+                hitEnemy.takeDamage(attackDamage, attackStunDuration);
+        }
+    }
+
+    void linkAnimations()
+    {
+        swordAnimController = GetComponentInChildren<Animator>();
+        triggerCache = Animator.StringToHash("EndAttack");
+        attackBoolCache = Animator.StringToHash("DoAttack");
+    }
+
     void attack()
     {
         if (swordAnimController == null)
-        {
-            swordAnimController = GetComponentInChildren<Animator>();
-            triggerCache = Animator.StringToHash("EndAttack");
-            attackBoolCache = Animator.StringToHash("DoAttack");
-        }
+            linkAnimations();
 
         if (!controllingCharacter.bHasSword)
             return;
@@ -173,10 +201,20 @@ public class PlayerController_Default : MonoBehaviour
         queueTimer = attackQueueTimer;
         bAttackQueued = false;
         bReadyToQueue = false;
+        dealDamage();
+
+        if (airPauseLimit < 3)
+        {
+            airPauseLimit++;
+            enableAirPause();
+        }
     }
 
     void resetAttack()
     {
+        if (swordAnimController == null)
+            linkAnimations();
+
         swordAnimController.SetTrigger(triggerCache);
         swordAnimController.ResetTrigger(attackBoolCache);
         bAttackQueued = false;

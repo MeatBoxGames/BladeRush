@@ -24,15 +24,23 @@ public class Enemy : Character {
 
     protected float stunTime;
 
+    int triggerCache;
+    int deadTrigger;
+    Animator animController;
+
+    protected bool bDead;
+
 	// Use this for initialization
     public void Start() 
     {
-
+        base.Start();
 	}
 	
 	// Update is called once per frame
 	public void Update () 
     {
+        if (bDead) return;
+
         if (player == null)
             player = GameObject.FindGameObjectsWithTag("Player")[0];
 
@@ -43,6 +51,38 @@ public class Enemy : Character {
         else
             chasePlayer();
 	}
+
+    public void takeDamage(int damage, float stundur)
+    {
+        if (animController == null)
+        {
+            animController =  GetComponent<Animator>();
+            triggerCache = Animator.StringToHash("TakeDamage");
+            deadTrigger = Animator.StringToHash("Die");
+        }
+
+        animController.SetTrigger(triggerCache);
+
+        if (!bHasTarget)
+        {
+            bHasTarget = true;
+            currCooldown = Random.Range(minWindupTime, maxWindupTime);
+        }
+
+        currHP -= damage;
+        stunTime = stundur;
+
+        Debug.Log(currHP);
+
+        if (currHP <= 0)
+            die();
+    }
+
+    public void die()
+    {
+        animController.SetTrigger(deadTrigger);
+        bDead = true; 
+    }
 
     void chasePlayer()
     {
