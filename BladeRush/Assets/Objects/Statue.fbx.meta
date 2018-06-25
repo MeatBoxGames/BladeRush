@@ -3,132 +3,12 @@ guid: 1172a91b6aa2a644985e6755a3c08339
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: breast.L
-    100002: breast.L_end
-    100004: breast.R
-    100006: breast.R_end
-    100008: Cylinder
-    100010: Enemy
-    100012: foot.L
-    100014: foot.R
-    100016: forearm.L
-    100018: forearm.R
-    100020: hand.L
-    100022: hand.L_end
-    100024: hand.R
-    100026: hand.R_end
-    100028: LeftArmIK
-    100030: LeftArmIK_end
-    100032: LeftArmPole
-    100034: LeftArmPole_end
-    100036: LeftIK
-    100038: LeftIK_end
-    100040: LeftPole
-    100042: LeftPole_end
-    100044: metarig
-    100046: pelvis.L
-    100048: pelvis.L_end
-    100050: pelvis.R
-    100052: pelvis.R_end
-    100054: RightArmIK
-    100056: RightArmIK_end
-    100058: RightArmPole
-    100060: RightArmPole_end
-    100062: RightIK
-    100064: RightIK_end
-    100066: RightPole
-    100068: RightPole_end
-    100070: shin.L
-    100072: shin.R
-    100074: shoulder.L
-    100076: shoulder.R
-    100078: spine
-    100080: spine.001
-    100082: spine.002
-    100084: spine.003
-    100086: spine.004
-    100088: spine.005
-    100090: spine.006
-    100092: spine.006_end
-    100094: //RootNode
-    100096: thigh.L
-    100098: thigh.R
-    100100: toe.L
-    100102: toe.L_end
-    100104: toe.R
-    100106: toe.R_end
-    100108: upper_arm.L
-    100110: upper_arm.R
-    400000: breast.L
-    400002: breast.L_end
-    400004: breast.R
-    400006: breast.R_end
-    400008: Cylinder
-    400010: Enemy
-    400012: foot.L
-    400014: foot.R
-    400016: forearm.L
-    400018: forearm.R
-    400020: hand.L
-    400022: hand.L_end
-    400024: hand.R
-    400026: hand.R_end
-    400028: LeftArmIK
-    400030: LeftArmIK_end
-    400032: LeftArmPole
-    400034: LeftArmPole_end
-    400036: LeftIK
-    400038: LeftIK_end
-    400040: LeftPole
-    400042: LeftPole_end
-    400044: metarig
-    400046: pelvis.L
-    400048: pelvis.L_end
-    400050: pelvis.R
-    400052: pelvis.R_end
-    400054: RightArmIK
-    400056: RightArmIK_end
-    400058: RightArmPole
-    400060: RightArmPole_end
-    400062: RightIK
-    400064: RightIK_end
-    400066: RightPole
-    400068: RightPole_end
-    400070: shin.L
-    400072: shin.R
-    400074: shoulder.L
-    400076: shoulder.R
-    400078: spine
-    400080: spine.001
-    400082: spine.002
-    400084: spine.003
-    400086: spine.004
-    400088: spine.005
-    400090: spine.006
-    400092: spine.006_end
-    400094: //RootNode
-    400096: thigh.L
-    400098: thigh.R
-    400100: toe.L
-    400102: toe.L_end
-    400104: toe.R
-    400106: toe.R_end
-    400108: upper_arm.L
-    400110: upper_arm.R
+    100000: //RootNode
+    400000: //RootNode
     2100000: No Name
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
-    4300002: Enemy
-    7400000: metarig|Casting
-    7400002: metarig|Casting.001
-    7400004: metarig|Idle
-    7400006: metarig|metarigAction
-    7400008: metarig|PoseLib
-    7400010: metarig|Sprint Cycle
-    7400012: metarig|Sprint Cycle.001
-    9500000: //RootNode
-    13700000: Enemy
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Enemy
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -209,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
