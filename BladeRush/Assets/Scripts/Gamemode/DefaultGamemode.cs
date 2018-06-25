@@ -7,6 +7,7 @@ public class DefaultGamemode : GameMode {
     public AudioSource Player_Dies_Sound;
     public string Failure_Scene;
     public GameObject Failure_Fadeout;
+    public bool God_Mode = false;
 
     private enum GameStates
     {
@@ -43,10 +44,12 @@ public class DefaultGamemode : GameMode {
 
     public override void PlayerDied(PlayerCharacter player)
     {
-        if (state == GameStates.Playing)
-        {
-            Player_Dies_Sound.Play();
-            GameFailure();
+        if (!God_Mode) {
+            if (state == GameStates.Playing)
+            {
+                Player_Dies_Sound.Play();
+                GameFailure();
+            }
         }
     }
 

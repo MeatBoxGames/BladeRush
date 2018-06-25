@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 7
+  Impact_Effect: {fileID: 1348182164848242, guid: 3fc49066988e8af4f9286db1c0aa7453,
+    type: 2}
 --- !u!114 &114902861784616270
 MonoBehaviour:
   m_ObjectHideFlags: 1
