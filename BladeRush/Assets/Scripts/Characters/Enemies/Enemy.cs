@@ -14,7 +14,7 @@ public class Enemy : Character {
 
     public float visionRange = 20.0f;
     public float moveSpeed = 7.0f;
-    public float rotationSpeed = 0.1f;
+    public float rotationSpeed = 1.5f;
     public float maxVertRot = 0.5f;
     protected GameObject player = null;
 
