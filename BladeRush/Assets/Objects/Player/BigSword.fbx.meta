@@ -17,7 +17,12 @@ ModelImporter:
     7400010: Plane|Slash 1
     7400012: Plane|Slash 2
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 61c9a344f0f60134fa96fde41d08e554, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
