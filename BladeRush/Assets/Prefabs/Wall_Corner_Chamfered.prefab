@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4490610932388452}
   - component: {fileID: 65346823958611392}
   - component: {fileID: 65817888043071284}
+  - component: {fileID: 65739462290740890}
   m_Layer: 0
   m_Name: Wall_Corner_Chamfered
   m_TagString: Untagged
@@ -124,8 +125,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 5.000005, z: 1.0364718}
-  m_Center: {x: -3, y: 2.5, z: 0.48176408}
+  m_Size: {x: 4.4884334, y: 5.000005, z: 1.0364718}
+  m_Center: {x: -2.2442167, y: 2.5, z: 0.48176408}
+--- !u!65 &65739462290740890
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637440771139788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9805412, y: 4.9583635, z: 0.9890282}
+  m_Center: {x: -4.686949, y: 2.5033932, z: -0.28902137}
 --- !u!65 &65817888043071284
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -136,5 +149,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9909258, y: 5.000005, z: 5.999999}
-  m_Center: {x: -5.504537, y: 2.5, z: -1.9999995}
+  m_Size: {x: 0.9909258, y: 5.000005, z: 4.4800954}
+  m_Center: {x: -5.504537, y: 2.5, z: -2.7599514}
