@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6813636af17ed4280b5f02f2414bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 50
   swordProjectile: {fileID: 1990215439117610, guid: fe948def3552c794587ef019a6bdd106,
     type: 2}
   maxStamina: 0
@@ -302,13 +302,16 @@ MonoBehaviour:
   maxAttackTimer: 0.5
   attackQueueTimer: 2
   attackRange: 5
-  attackDamage: 35
+  attackDamage: 25
   attackStunDuration: 1
   currentStamina: 0
   maxStamina: 100
   swordTeleportCost: 25
+  rollCost: 15
   staminaRegenDelay: 1
   staminaRegen: 35
+  rollDuration: 0.25
+  dodgeSpeedMultiplier: 2
 --- !u!124 &124884165758392610
 Behaviour:
   m_ObjectHideFlags: 1

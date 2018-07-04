@@ -17,6 +17,15 @@ public class EnemyProjectile : Projectile {
 
     protected void OnCollisionEnter(Collision collision)
     {
+        // Get the player that was hit, or null if we hit something else.
+        PlayerCharacter player = collision.gameObject.GetComponentInParent<PlayerCharacter>();
+        // If what we hit was a player...
+        if (player != null)
+        {
+            // The player can't take damage now, but if they could, whatever it is that would cause that should happen here.
+            player.takeDamage(damage);
+        }
+
         // Go through the contact points
         foreach (ContactPoint hitpoint in collision.contacts)
         {
@@ -26,14 +35,6 @@ public class EnemyProjectile : Projectile {
             Destroy(impact, 1);
         }
 
-        // Get the player that was hit, or null if we hit something else.
-        PlayerCharacter player = collision.gameObject.GetComponentInParent<PlayerCharacter>();
-        // If what we hit was a player...
-        if (player != null)
-        {
-            // The player can't take damage now, but if they could, whatever it is that would cause that should happen here.
-            player.takeDamage(damage);
-        }
 
         Destroy(gameObject);
     }

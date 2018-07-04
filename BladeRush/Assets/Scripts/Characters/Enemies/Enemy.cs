@@ -54,14 +54,7 @@ public class Enemy : Character {
 
     public void takeDamage(int damage, float stundur)
     {
-        if (animController == null)
-        {
-            animController =  GetComponent<Animator>();
-            triggerCache = Animator.StringToHash("TakeDamage");
-            deadTrigger = Animator.StringToHash("Die");
-        }
-
-        animController.SetTrigger(triggerCache);
+        playStunAnimation();
 
         if (!bHasTarget)
         {
@@ -76,6 +69,18 @@ public class Enemy : Character {
 
         if (currHP <= 0)
             die();
+    }
+
+    public void playStunAnimation()
+    {
+        if (animController == null)
+        {
+            animController = GetComponent<Animator>();
+            triggerCache = Animator.StringToHash("TakeDamage");
+            deadTrigger = Animator.StringToHash("Die");
+        }
+
+        animController.SetTrigger(triggerCache);
     }
 
     public void die()

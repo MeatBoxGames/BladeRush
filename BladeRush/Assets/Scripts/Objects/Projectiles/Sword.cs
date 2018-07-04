@@ -13,6 +13,7 @@ public class Sword : Projectile
     void Start()
     {
         base.Start();
+        Physics.IgnoreLayerCollision(10, 9, false);
     }
 
     // Update is called once per frame

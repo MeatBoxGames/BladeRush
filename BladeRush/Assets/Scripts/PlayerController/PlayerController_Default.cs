@@ -39,7 +39,8 @@ public class PlayerController_Default : MonoBehaviour
     public float maxAttackTimer = 0.5f;
     public float attackQueueTimer = 2.0f;
     public float attackRange = 3.0f;
-    public int attackDamage = 35;
+    public int attackDamage = 25;
+    int comboCount;
     public float attackStunDuration = 1.0f;
     int airPauseLimit;
     bool bAttackQueued;
@@ -61,8 +62,9 @@ public class PlayerController_Default : MonoBehaviour
     float rollTimer;
     public float rollDuration = 0.25f;
     bool bReadyToRoll;
-    Vector2 rollInputs;
-    public float dodgeSpeed = 14.0f;
+    Vector3 rollDirection;
+    public float dodgeSpeedMultiplier = 2.0f;
+    float originalMovespeed;
 
     GameMode game;
 
@@ -82,11 +84,32 @@ public class PlayerController_Default : MonoBehaviour
         setCurrentStamina(maxStamina);
     }
 
+    public void addStamina(float stam)
+    {
+        setCurrentStamina(currentStamina + stam);
+    }
+
     public void setCurrentStamina(float newstam)
     {
         Debug.Log(newstam);
         currentStamina = Mathf.Clamp(newstam, 0.0f, maxStamina);
         updateStaminaHUD();
+    }
+
+    public void enableIframes()
+    {
+        Physics.IgnoreLayerCollision(11, 10, true);
+    }
+
+    public void enableIframes(float duration)
+    {
+        Physics.IgnoreLayerCollision(11, 10, true);
+        Invoke("disableIframes", duration);
+    }
+
+    public void disableIframes()
+    {
+        Physics.IgnoreLayerCollision(11, 10, false);
     }
 
     public void setStaminaTimer()
@@ -105,6 +128,14 @@ public class PlayerController_Default : MonoBehaviour
     {
         bAirPause = true;
         currAirPause = midairPause;
+        Physics.gravity = new Vector3(0, 0, 0);
+        rigidbody.velocity = new Vector3(0, 0, 0);
+    }
+
+    public void enableAirPause(float duration)
+    {
+        bAirPause = true;
+        currAirPause = duration;
         Physics.gravity = new Vector3(0, 0, 0);
         rigidbody.velocity = new Vector3(0, 0, 0);
     }
@@ -185,6 +216,8 @@ public class PlayerController_Default : MonoBehaviour
 
         rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
 
+        MoveCamera();
+
         if (!bIsRolling)
         {
             MovePlayer();
@@ -214,28 +247,38 @@ public class PlayerController_Default : MonoBehaviour
         }
         else
         {
-
+            updateDodge();
         }
 
         if (Input.GetAxis("Fire3") != 0 && bReadyToRoll)
         {
-            //dodgeRoll();
+            dodgeRoll();
         }
         else if (Input.GetAxis("Fire3") == 0)
         {
-            //bReadyToRoll = true;
+            bReadyToRoll = true;
         }
     }
 
     void updateDodge()
     {
-        Vector3 move = transform.forward * rollInputs.y;
-        move += transform.right * rollInputs.x;
+        if (rollTimer < 0)
+        {
+            endDodgeRoll();
+            return;
+        }
+        else
+            rollTimer -= Time.deltaTime;
 
-        move.Normalize();
-        move *= movespeed * Time.deltaTime;
-
+        Vector3 move = rollDirection * dodgeSpeedMultiplier* movespeed * Time.deltaTime;
         rigidbody.MovePosition(transform.position + move);
+    }
+
+    void endDodgeRoll()
+    {
+        disableIframes();
+        disableAirPause();
+        bIsRolling = false;
     }
 
     void dodgeRoll()
@@ -245,14 +288,20 @@ public class PlayerController_Default : MonoBehaviour
 
         bIsRolling = true;
         rollTimer = rollDuration;
+        bReadyToRoll = false;
 
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
 
-        rollInputs = new Vector2(x, z);
+        Vector3 move = transform.forward * z;
+        move += transform.right * x;
+        move.Normalize();
+        rollDirection = move;
 
         resetAttack();
-        disableAirPause();
+        enableAirPause(rollTimer);
+        enableIframes();
+        addStamina(rollCost * -1.0f);
     }
 
     void dealDamage()
@@ -270,8 +319,15 @@ public class PlayerController_Default : MonoBehaviour
 
             Enemy hitEnemy = obj.GetComponent<Enemy>();
 
+            int thisDamage = 0;
+
+            if (comboCount < 3)
+                thisDamage = attackDamage;
+            else
+                thisDamage = attackDamage * 2;
+
             if (hitEnemy != null)
-                hitEnemy.takeDamage(attackDamage, attackStunDuration);
+                hitEnemy.takeDamage(thisDamage, attackStunDuration);
         }
     }
 
@@ -296,6 +352,7 @@ public class PlayerController_Default : MonoBehaviour
         queueTimer = attackQueueTimer;
         bAttackQueued = false;
         bReadyToQueue = false;
+        comboCount++;
         dealDamage();
 
         if (airPauseLimit < 3)
@@ -330,9 +387,10 @@ public class PlayerController_Default : MonoBehaviour
         swordAnimController.ResetTrigger(attackBoolCache);
         bAttackQueued = false;
         bReadyToQueue = false;
+        comboCount = 0;
     }
 
-    void MovePlayer()
+    void MoveCamera()
     {
         if (!Application.isFocused) return;
 
@@ -349,6 +407,12 @@ public class PlayerController_Default : MonoBehaviour
         Vector3 targetForward = transform.localRotation * Vector3.forward;
         Vector3 targetUp = transform.localRotation * Vector3.up;
 
+        rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
+    }
+
+    void MovePlayer()
+    {
+        if (!Application.isFocused) return;
         if (bAirPause) return;
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 9.0f;

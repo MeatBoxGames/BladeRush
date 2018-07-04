@@ -28,6 +28,24 @@ public class PlayerCharacter : Character {
             return false;
         }
 
+        // Bit shift the index of the layer to get a bit mask
+        int layermask1 = 1 << 9;
+        int layermask2 = 1 << 10;
+        int layermask3 = 1 << 11;
+
+        int finalmask = layermask1 | layermask2 | layermask3;
+
+        // This would cast rays only against colliders in layer 8.
+        // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
+        finalmask = ~finalmask;
+
+        // If the player is against a wall, dont throw the sword
+        RaycastHit hit;
+        if (Physics.Raycast(pos, rot * Vector3.forward, out hit, 3.0f, finalmask))
+        {
+            return false;
+        }
+
         PlayerController_Default pc = gameObject.GetComponent<PlayerController_Default>();
 
         if (pc.currentStamina < pc.swordTeleportCost)
@@ -100,6 +118,7 @@ public class PlayerCharacter : Character {
         if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up * -1.0f), out hit, 2.0f, finalmask))
         {
             GetComponent<PlayerController_Default>().enableAirPause();
+            GetComponent<PlayerController_Default>().enableIframes(0.25f);
         }
     }
 
@@ -116,7 +135,10 @@ public class PlayerCharacter : Character {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
             if (enemy != null)
+            {
                 enemy.setStunTime(swordInstance.GetComponent<Sword>().enemyTeleportStunDuration);
+                enemy.playStunAnimation();
+            }
         }
         else
         {
